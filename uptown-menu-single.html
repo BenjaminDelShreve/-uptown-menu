@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Uptown Kitchen restaurant menu featuring burgers, mains, greens, handhelds, bites, and more">
+  <title>Uptown Kitchen Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Montserrat Font Family */
+    * {
+      font-family: 'Montserrat', sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* Base Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page-container {
+      min-height: 100vh;
+      background-color: #f8f5f0;
+      color: #2c2c2c;
+    }
+
+    /* Header */
+    .header {
+      background-color: #f8f5f0;
+      color: #2c2c2c;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 8rem;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .header-title-gold {
+      color: #C79B2C;
+    }
+
+    .header-title-eat {
+      font-weight: 800;
+    }
+
+    .header-title-drink {
+      font-weight: 300;
+    }
+
+    .header-title-separator {
+      margin: 0 0.5rem;
+      font-weight: 400;
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .main-content {
+        padding: 3rem 2rem;
+      }
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    .menu-column {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* Menu Section */
+    .menu-section {
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      font-size: 3rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #ff0000;
+      color: #000;
+      letter-spacing: -0.025em;
+      line-height: 1.8;
+    }
+
+    .section-header-with-addons {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #ff0000;
+    }
+
+    .handhelds-header {
+      align-items: baseline;
+    }
+
+    .handhelds-header .section-header {
+      line-height: 1;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .handhelds-header .greens-add-ons {
+      padding-top: 0;
+      margin-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      transform: translateY(0.6rem);
+      font-weight: 600;
+    }
+
+    .handhelds-header .greens-add-ons > div:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-header-with-description {
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #ff0000;
+    }
+
+    .section-header-no-border {
+      margin-bottom: 0.5rem;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .section-header-with-addons .section-header {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+      flex: 0 0 auto;
+      line-height: 1;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .greens-add-ons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #555;
+      text-align: left;
+      white-space: nowrap;
+      padding-top: 0;
+      margin-top: 0;
+      align-self: flex-start;
+    }
+
+    .kids-description {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #555;
+      margin-top: 0;
+      margin-bottom: 0;
+      line-height: 1.4;
+    }
+
+    .kids-description div {
+      margin-bottom: 0.25rem;
+    }
+
+    .beer-menu-image {
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+
+    .beer-menu-image img {
+      border-radius: 1rem;
+    }
+
+    .logo-image {
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-image img {
+      border-radius: 1rem;
+    }
+
+
+    .bites-full-width {
+      width: 100%;
+      margin-top: 3rem;
+    }
+
+    .bites-full-width .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .bites-two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .bites-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 1024px) {
+      .bites-two-column {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    .section-header-price {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .section-description {
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .burgers-description {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    /* Menu Items */
+    .menu-item {
+      margin-bottom: 2rem;
+    }
+
+    .menu-item-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-item-header .menu-item-price {
+      margin-left: 0.5rem;
+    }
+
+    .menu-item-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 0 0 auto;
+    }
+
+    .menu-item-title {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #C79B2C;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .asterisk {
+      color: #000;
+    }
+
+    .menu-item-price {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .menu-item-description {
+      font-size: 0.875rem;
+      color: #555;
+      line-height: 1.75;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .half-size-option {
+      color: #C79B2C;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    .vegetarian-item-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .positioned-label {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      margin-left: 0;
+      text-align: right;
+      justify-content: flex-end;
+    }
+
+    .philly-item {
+      position: relative;
+    }
+
+    .bites-column {
+      position: relative;
+    }
+
+    .vegetarian-item-text {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    .vegan-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .menu-item-header,
+    .menu-item-title-wrapper {
+      position: relative;
+    }
+
+    .vegan-icon-inline {
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      left: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+
+    .vegan-icon-grid {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .vegan-item {
+      position: relative;
+    }
+
+    .vegan-item .vegan-icon-grid {
+      position: absolute;
+      left: -22px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-right: 0;
+    }
+
+    .root-beer-word {
+      position: relative;
+      display: inline-block;
+    }
+
+    .root-beer-overlay {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-10%) translateY(-2.5rem);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      object-fit: cover;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .red-dots {
+      width: 150px;
+      height: 3px;
+      background-image: repeating-linear-gradient(
+        to right,
+        #ff0000 0px,
+        #ff0000 3px,
+        transparent 3px,
+        transparent 7px
+      );
+      margin-right: 0.5rem;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.125rem 0.5rem;
+      font-size: 0.75rem;
+      border: 1px solid;
+      border-radius: 0.25rem;
+    }
+
+    .badge-vegetarian {
+      background-color: #dcfce7;
+      color: #166534;
+      border-color: #86efac;
+    }
+
+    .badge-half {
+      background-color: #dbeafe;
+      color: #1e40af;
+      border-color: #93c5fd;
+    }
+
+    /* Kids Grid */
+    .kids-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #C79B2C;
+      margin-bottom: 2rem;
+    }
+
+    /* Beer Tenders */
+    .beer-tenders-prices {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #555;
+      margin-top: 0.75rem;
+    }
+
+    .beer-tenders-price {
+      margin-left: 0.5rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    /* Add-ons Box */
+    .add-ons-box {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background-color: #e8e3d8;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .add-ons-box p {
+      margin: 0.25rem 0;
+    }
+
+    .add-ons-box p:first-child {
+      margin-top: 0;
+    }
+
+    .add-ons-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .sauces-dressings-label {
+      color: #C79B2C;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-content {
+        padding: 0 2rem;
+      }
+    }
+
+    .footer-text {
+      font-size: 0.75rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+
+    .footer-text:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .footer-title {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .footer-title-text {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .footer-title-gold {
+      color: #C79B2C;
+    }
+
+    /* Legend */
+    .legend {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.75rem;
+      color: #555;
+      font-weight: 400;
+    }
+
+    @media (min-width: 640px) {
+      .legend {
+        padding: 1rem 2rem;
+      }
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .legend-text {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .header-title {
+        font-size: 4rem;
+      }
+
+      .section-header {
+        font-size: 2.25rem;
+      }
+
+      .section-header-with-addons {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .greens-add-ons {
+        text-align: left;
+        padding-top: 0;
+      }
+
+      .menu-item-title {
+        font-size: 1rem;
+      }
+
+      .menu-item-price {
+        font-size: 1rem;
+      }
+
+      .footer-title-text {
+        font-size: 1.875rem;
+      }
+    }
+
+    /* Ensure no overflow on mobile */
+    @media (max-width: 640px) {
+      .page-container {
+        overflow-x: hidden;
+      }
+
+      .main-content,
+      .footer-content,
+      .legend {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    /* Skip to main content link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header" role="banner">
+      <h1 class="header-title">
+        <span class="header-title-gold header-title-eat">EAT</span>
+        <span class="header-title-separator">•</span>
+        <span class="header-title-gold header-title-drink">DRINK</span>
+      </h1>
+    </header>
+
+    <!-- Main Menu Content -->
+    <main id="main-content" class="main-content" role="main">
+      <div class="menu-grid">
+        <!-- Left Column -->
+        <div class="menu-column">
+          <!-- BURGERS Section -->
+          <section class="menu-section" aria-labelledby="section-burgers">
+            <div class="section-header-with-description">
+              <h2 id="section-burgers" class="section-header section-header-no-border">BURGERS</h2>
+              <p class="section-description burgers-description">
+                Fresh, all-beef, hand-formed patties served with Uptown fries or tots. "Load" your spuds <strong>+3</strong> • Substitute Side Salad, Zippin' Brussels Sprouts, or Fried Pickles <strong>+3</strong> • <span style="font-style: italic;">Substitute chicken breast, plant-based chicken, or veggie patty upon request.</span>
+              </p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">the classic<span class="asterisk" aria-label="May be served raw or undercooked">*</span></h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Lettuce, tomato, pickle, onion, mayo. Choice of American or Cheddar Cheese. Add Bacon <strong>+2</strong></p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">blues burger<span class="asterisk" aria-label="May be served raw or undercooked">*</span></h3>
+                <span class="menu-item-price">$16</span>
+              </div>
+              <p class="menu-item-description">Sharp bleu cheese crumbles, thick-cut bacon, and our kickin' aioli. Lettuce, tomato, pickle, onion included</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">shroommaster<span class="asterisk" aria-label="May be served raw or undercooked">*</span></h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Sautéed mushrooms with Swiss cheese and garlic aioli</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">sunrise<span class="asterisk" aria-label="May be served raw or undercooked">*</span></h3>
+                <span class="menu-item-price">$16</span>
+              </div>
+              <p class="menu-item-description">Sunny-side up egg, thick-cut bacon, smashed tots, cheddar, and mayo. Lettuce, tomato, pickle, onion included</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">inferno<span class="asterisk" aria-label="May be served raw or undercooked">*</span></h3>
+                <span class="menu-item-price">$15</span>
+              </div>
+              <p class="menu-item-description">Roasted poblanos and thinly sliced jalapeños with pepper jack cheese and our signature kickin' aioli. Lettuce, tomato, pickle, onion included</p>
+            </div>
+
+            <div class="beer-menu-image">
+              <img src="public/uptown-beer-menu.jpg" alt="Uptown Kitchen beer menu with available beers and drinks" style="width: 100%; height: auto; display: block;">
+            </div>
+          </section>
+
+          <!-- MAINS Section -->
+          <section class="menu-section" aria-labelledby="section-mains">
+            <h2 id="section-mains" class="section-header">MAINS</h2>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">grilled pilsner chicken</h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Juicy pilsner-marinated grilled chicken topped with caramelized onions, roasted poblano peppers, and melted pepper jack cheese, drizzled with honey mustard. Includes your choice of side</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">session salmon</h3>
+                <span class="menu-item-price">$18</span>
+              </div>
+              <p class="menu-item-description">Grilled Atlantic salmon glazed with a honey-lime chili sauce, served over a bed of fluffy couscous with a side of roasted Brussels sprouts</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">fried chicken + waffles</h3>
+                <span class="menu-item-price">$15</span>
+              </div>
+              <p class="menu-item-description">Our twist on a southern staple. Served with a sunny-side up egg, honey butter, and syrup. For a different twist, try it with French toast! <span class="half-size-option">HALF-SIZE OPTION</span></p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">fish + chips</h3>
+                <span class="menu-item-price">$16</span>
+              </div>
+              <p class="menu-item-description">Beer-battered cod accompanied by sweet slaw, scratch-made tartar sauce, and fries <span class="half-size-option">HALF-SIZE OPTION</span></p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="menu-column">
+          <!-- GREENS Section -->
+          <section class="menu-section" aria-labelledby="section-greens">
+            <div class="section-header-with-addons">
+              <h2 id="section-greens" class="section-header">GREENS</h2>
+              <div class="greens-add-ons">
+                <div>Add Chicken <strong>+3</strong></div>
+                <div>Add Salmon <strong>+4</strong></div>
+                <div>Add Smoked Turkey <strong>+4</strong></div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                  <h3 class="menu-item-title">kale lemon salad</h3>
+                </div>
+                <span class="menu-item-price">$12</span>
+              </div>
+              <p class="menu-item-description">Chopped kale tossed with spiced chickpeas, shaved Parmesan, and lemon vinaigrette</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                <h3 class="menu-item-title">spinach cranberry apple pecan salad</h3>
+                <span class="menu-item-price">$13</span>
+              </div>
+              <p class="menu-item-description">Fresh baby spinach tossed with crisp apples, dried cranberries, candied pecans, and balsamic vinaigrette</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">caesar salad</h3>
+                </div>
+                <span class="menu-item-price">$12</span>
+              </div>
+              <p class="menu-item-description">Crisp romaine tossed in our homemade Caesar dressing, topped with shaved Parmesan and croutons</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">cobb salad</h3>
+                </div>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">A bed of romaine with fresh avocado, thick-cut bacon, bleu cheese, grape tomatoes, and hard-boiled egg with your choice of dressing (see other side for options)</p>
+            </div>
+          </section>
+
+          <!-- Kids & Sides -->
+          <section class="menu-section" aria-labelledby="section-kids">
+            <div class="section-header-with-description">
+              <h2 id="section-kids" class="section-header section-header-no-border">
+                for the kids <span class="section-header-price">$6</span>
+              </h2>
+              <div class="kids-description">
+                <div>Served with a side and a drink.</div>
+                <div>Must be 12 or under — <span style="font-style: italic;">for friends over</span></div>
+                <div><span style="font-style: italic;">the age of 12, we will charge an extra <strong>3</strong></span></div>
+              </div>
+            </div>
+            <div class="kids-grid">
+              <div class="vegan-item">CHEESE QUESADILLA<img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid"></div>
+              <div>MINI BURGER</div>
+              <div class="vegan-item">GRILLED CHEESE<img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid"></div>
+              <div>HOT DOG</div>
+              <div>CHICKEN TENDERS</div>
+              <div class="vegan-item">MAC & CHEESE<img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid"></div>
+            </div>
+
+            <h2 id="section-sides" class="section-header">
+              sides <span class="section-header-price">$5</span>
+            </h2>
+            <div class="kids-grid">
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">SWEET SLAW</div>
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">FRIES • TOTS</div>
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">HONEY-GLAZED BABY CARROTS</div>
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">SIDE SALAD</div>
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">FRIED SPINACH</div>
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">CUCUMBER TOMATO SALAD</div>
+              <div>ZIPPIN' BRUSSELS SPROUTS</div>
+              <div class="vegan-item"><img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-grid">MAC & CHEESE</div>
+            </div>
+
+            <div class="logo-image">
+              <img src="public/uptown-logo.jpeg" alt="Uptown Kitchen restaurant logo" style="width: 100%; height: auto; display: block;">
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                <h3 class="menu-item-title">skillet mac</h3>
+                <span class="menu-item-price">$12</span>
+              </div>
+              <p class="menu-item-description">Cavatappi pasta tossed with housemade spicy cheese sauce, topped with Parmesan cheese and green onions</p>
+            </div>
+
+            <div class="add-ons-box">
+              <p>Add Thick-Cut Bacon <strong>+1</strong></p>
+              <p>Add BBQ Carnitas <strong>+2</strong></p>
+              <p>Add Uptown Chili <strong>+2</strong></p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- BITES Section - Full Width -->
+      <section class="menu-section bites-full-width" aria-labelledby="section-bites">
+        <h2 id="section-bites" class="section-header">BITES</h2>
+        <div class="bites-two-column">
+          <div class="bites-column">
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">buffalo chicken dip</h3>
+                </div>
+                <span class="menu-item-price">$13</span>
+              </div>
+              <p class="menu-item-description">A union of tender chicken, buffalo sauce, cream cheese, cheddar, and mozzarella. Garnished with Parmesan and green onions and served with warm naan bread</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">carnitas queso</h3>
+                </div>
+                <span class="menu-item-price">$12</span>
+              </div>
+              <p class="menu-item-description">Housemade spicy queso topped with tender pork and garnished with pico de gallo. Choice of naan or corn tortilla chips</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                  <h3 class="menu-item-title">hummus</h3>
+                </div>
+                <span class="menu-item-price">$13</span>
+              </div>
+              <p class="menu-item-description">Scratch-made hummus with hints of garlic, topped with spiced chickpeas and served with an assortment of fresh veggies and warm naan bread</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">zippin' brussels sprouts</h3>
+                <span class="menu-item-price">$10</span>
+              </div>
+              <p class="menu-item-description">Crispy fried Brussels Sprouts tossed with lemon vinaigrette and finished with bacon, cotija cheese, and Sweety Drop peppers</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">the wings</h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Eight jumbo wings cooked to perfection and tossed in your choice of sauce. Served with carrots, celery, and your choice of ranch or bleu cheese</p>
+            </div>
+          </div>
+
+          <div class="bites-column">
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">beer tenders</h3>
+              </div>
+              <p class="menu-item-description">
+                Made-to-order crispy beer <span class="root-beer-word">battered<img src="public/root-beer.jpeg" alt="Root beer float available for $6" class="root-beer-overlay"></span> chicken strips served with your choice of sauce. Served with carrots, celery, and your choice of ranch or bleu cheese
+              </p>
+              <div class="beer-tenders-prices">
+                <span>4 Tenders <span class="beer-tenders-price">$10</span></span>
+                <span>8 Tenders <span class="beer-tenders-price">$17</span></span>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                <h3 class="menu-item-title">fried pickles</h3>
+                <span class="menu-item-price">$9</span>
+              </div>
+              <p class="menu-item-description">Hand-dipped fried dill pickle chips served with ranch dressing</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                  <h3 class="menu-item-title">pretzels</h3>
+                </div>
+                <span class="menu-item-price">$12</span>
+              </div>
+              <p class="menu-item-description">Two baked pretzels served with our savory beer cheese sauce and honey mustard</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">razor rolls</h3>
+                <span class="menu-item-price">$13</span>
+              </div>
+              <p class="menu-item-description">Carnitas, bacon, cream cheese, jalapenos, cheddar-wrapped, fried, served with "top secret" Sooie sauce. While supplies last!</p>
+            </div>
+
+            <div class="add-ons-box">
+              <p><strong class="sauces-dressings-label">SAUCES:</strong> Buffalo, BBQ, Korean BBQ, Honey Sriracha, Garlic Parmesan, and Dreaded Death <strong>+1</strong></p>
+              <p><strong class="sauces-dressings-label">DRESSINGS:</strong> Ranch, Bleu Cheese, Honey Mustard, Balsamic Vinaigrette, Lemon Vinaigrette, Spicy Ranch, 1000 Island, Kickin' Aioli, Garlic Aioli, and Caesar</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HANDHELDS Section - Full Width -->
+      <section class="menu-section bites-full-width" aria-labelledby="section-handhelds">
+        <div class="section-header-with-addons handhelds-header">
+          <h2 id="section-handhelds" class="section-header">HANDHELDS</h2>
+          <div class="greens-add-ons">
+            <div>Served with your choice of fries or tots</div>
+            <div>Substitute Side Salad, Zippin' Brussels Sprouts, or Fried Pickles <strong>+3</strong></div>
+          </div>
+        </div>
+        <div class="bites-two-column">
+          <div class="bites-column">
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">blt</h3>
+                </div>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">A pile of thick-cut bacon with romaine lettuce, fresh tomatoes, and garlic aioli on toasted sourdough bread <span class="half-size-option">HALF-SIZE OPTION</span></p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">brewben</h3>
+                </div>
+                <span class="menu-item-price">$16</span>
+              </div>
+              <p class="menu-item-description">Lean-shaved corned beef, Pilsner sauerkraut, Swiss cheese, and Thousand Island dressing served on toasted, thick-cut marble rye</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">brat sliders</h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Two grilled bratwurst sliders topped with tangy sauerkraut, melted Swiss cheese, and honey mustard, served on toasted buns</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon-inline">
+                  <h3 class="menu-item-title">mediterranean wrap</h3>
+                </div>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Scratch-made hummus, spiced chickpeas, romaine lettuce, cherry tomatoes, cucumber, and lemon vinaigrette wrapped in a flour tortilla</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">southwest turkey wrap</h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Sliced turkey, guacamole, pico de gallo, lettuce, and our spicy kickin' aioli wrapped in a flour tortilla</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">chicken philly</h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Marinated grilled chicken, bacon, swiss, sautéed onions, mayo, hot pepper relish. Plant-based option available</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">smoked + fried turkey club</h3>
+                <span class="menu-item-price">$17</span>
+              </div>
+              <p class="menu-item-description">Smoked then fried turkey, bacon, lettuce, tomato, and garlic aioli stacked on sourdough <span class="half-size-option">HALF-SIZE OPTION</span></p>
+            </div>
+          </div>
+
+          <div class="bites-column">
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">chicken avocado club</h3>
+                </div>
+                <span class="menu-item-price">$17</span>
+              </div>
+              <p class="menu-item-description">This pub's favorite is stacked high with thick-cut bacon, chicken, avocado, lettuce, tomato, and garlic aioli on sourdough bread <span class="half-size-option">HALF-SIZE OPTION</span></p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">smoked pork sliders</h3>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Two sliders featuring tender, slow-smoked pork butt paired with our tangy yet subtly spicy BBQ sauce, sautéed onions, and melted cheddar cheese. Topped with a pickle for the perfect crunch</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">chili dog</h3>
+                </div>
+                <span class="menu-item-price">$16</span>
+              </div>
+              <p class="menu-item-description">Footlong dog smothered in hearty chili, topped with melted cheddar cheese, diced red onions, and sliced jalapeños</p>
+            </div>
+
+            <div class="menu-item">
+              <div class="menu-item-header">
+                <h3 class="menu-item-title">craft-fried chicken sandwich</h3>
+                <span class="menu-item-price">$16</span>
+              </div>
+              <p class="menu-item-description">Beer-battered chicken breast sandwich with sweet slaw, buffalo sauce (or Dreaded Death <strong>+1</strong>), and dill chips topped with pepper jack cheese and served on a brioche bun</p>
+            </div>
+
+            <div class="menu-item philly-item">
+              <div class="menu-item-header">
+                <div class="menu-item-title-wrapper">
+                  <h3 class="menu-item-title">philly cheesesteak</h3>
+                </div>
+                <span class="menu-item-price">$14</span>
+              </div>
+              <p class="menu-item-description">Thinly sliced, juicy sirloin steak with sautéed onions and red peppers, smothered with pepper jack cheese and served on a hoagie roll</p>
+              <div class="vegetarian-item-label positioned-label">
+                <div class="red-dots" aria-hidden="true"></div>
+                <span class="vegetarian-item-text">VEGETARIAN ITEM</span>
+                <img src="public/vegan.png" alt="Vegetarian option" class="vegan-icon">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <p class="footer-text">
+          *These items may be served raw or undercooked. The consumption of raw or undercooked meats, seafood, poultry, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.
+        </p>
+        <p class="footer-text">
+          Please inform your server of any allergies you may have. Gluten-friendly menu available upon request.
+        </p>
+      </div>
+      <div class="footer-title">
+      </div>
+    </footer>
+
+    <!-- Legend -->
+    <div class="legend">
+    </div>
+  </div>
+</body>
+</html>
+
